@@ -1,0 +1,281 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.rubik-mono-one-regular {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Upper Bar Styling */
+.upper-bar {
+    background-color: rgba(12, 3, 51, 0.8);
+    color: white;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(20, 23, 42, 0.6);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    height: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-links li {
+    position: relative; /* Needed for dropdown positioning */
+    margin-left: 30px;
+}
+
+/* Main navigation link styles */
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00d1b2;
+}
+
+/* Dropdown container styles */
+.nav-links li .dropdown-content {
+    display: block; /* Always display, we will control visibility with opacity and height */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(12, 3, 51, 0.9);
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    height: 0;
+    overflow: hidden; /* Hide overflowing content when dropdown is closed */
+    transition: opacity 0.5s ease, height 0.5s ease; /* Transition for opacity and height */
+}
+
+/* Show dropdown on hover with slide-down effect */
+.nav-links li:hover .dropdown-content {
+    opacity: 1;
+    height: auto; /* Set height to auto when hovered */
+    padding: 10px;
+}
+
+/* Dropdown link styles */
+.nav-links li .dropdown-content a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li .dropdown-content a:hover {
+    background-color: rgba(123, 22, 22, 0.6);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: url('images/your-image.jpg') no-repeat center center/cover;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 64px; /* Adjust size as necessary */
+    text-align: center;
+    color: white; /* Change color if needed */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+.title-animated {
+    opacity: 0; /* Start invisible */
+    animation: popup 1.5s ease forwards; /* Animation properties */
+    animation-delay: 0.5s; /* Delay before the animation starts */
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.desc-pop-up {
+    font-size: 22px;
+    margin-top: 20px;
+    opacity: 0;
+    white-space: nowrap;
+    animation: descPopUp 2s ease forwards 0.5s;
+}
+
+@keyframes descPopUp {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Floating Bubbles Animation */
+.bubble-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px;
+    background: rgba(189, 21, 21, 0.6);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp 10s infinite ease-in-out;
+    animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-50vh) scale(1.1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Bubbles with different sizes and positions */
+.bubble:nth-child(1) { left: 20%; width: 60px; height: 60px; animation-duration: 12s; }
+.bubble:nth-child(2) { left: 35%; width: 30px; height: 30px; animation-duration: 9s; }
+.bubble:nth-child(3) { left: 50%; width: 80px; height: 80px; animation-duration: 14s; }
+/* Add more bubbles here as needed */
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    text-align: center;
+}
+
+.download-btn {
+    margin-top: 100px;
+    font-size: 30px;
+    color: white;
+    display: inline-block;
+    padding: 30px 48px;
+    text-decoration: none;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.5s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1.5s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.download-btn:hover {
+    background-color: rgb(123, 22, 22);
+    transform: translateY(-10px) scale(1.25);
+}
+
+footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center; /* This is correct */
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    display: flex; /* Add this */
+    justify-content: center; /* Add this */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px; /* Adjust font size */
+}
+
+footer p a {
+    color: #61dafb; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+footer p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.PPP {
+    font-size: 20px;
+    cursor: no-drop;
+    text-align: center; /* Keep this */
+}

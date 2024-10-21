@@ -1,0 +1,396 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Upper Bar Styling */
+.upper-bar {
+    background-color: rgba(12, 3, 51, 0.8);
+    color: white;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(20, 23, 42, 0.6);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    height: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00d1b2;
+}
+
+.hero {
+    min-height: 100vh; /* Ensure it takes up the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Ensure it sits above the bubbles */
+}
+
+.hero-title {
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 48px; /* Adjust as needed */
+    text-align: center;
+    margin-top: 20px; /* Adjust spacing */
+    opacity: 0; /* Start invisible */
+    animation: fadeInScale 1.5s ease forwards; /* Add animation */
+}
+
+@keyframes fadeInScale {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.center-image {
+    max-width: 50%;
+    opacity: 0;
+    animation: popup 1.5s ease forwards;
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.bubble-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none; /* To ensure they don't interfere with other elements */
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px; /* Start position for the bubbles */
+    background: rgba(189, 21, 21, 0.6); /* Purple color with transparency */
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp 10s infinite ease-in-out;
+    animation-delay: calc(-1s * var(--i)); /* Staggered animation delays */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-50vh) scale(1.1); /* Adjusted to rise to halfway */
+        opacity: 0.6; /* Slightly reduce opacity */
+    }
+    100% {
+        transform: translateY(-100vh) scale(1); /* Rise all the way to the top */
+        opacity: 0; /* Completely disappear */
+    }
+}
+
+/* Creating multiple bubbles with different sizes and positions */
+.bubble:nth-child(1) {
+    left: 20%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 12s;
+}
+
+.bubble:nth-child(2) {
+    left: 35%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 9s;
+}
+
+.bubble:nth-child(3) {
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    animation-duration: 14s;
+}
+
+.bubble:nth-child(4) {
+    left: 65%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 10s;
+}
+
+.bubble:nth-child(5) {
+    left: 80%;
+    width: 90px;
+    height: 90px;
+    animation-duration: 16s;
+}
+
+.bubble:nth-child(6) {
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 11s;
+}
+
+.bubble:nth-child(7) {
+    left: 90%;
+    width: 70px;
+    height: 70px;
+    animation-duration: 13s;
+}
+
+.bubble:nth-child(8) {
+    left: 25%;
+    width: 55px;
+    height: 55px;
+    animation-duration: 12s;
+}
+
+.bubble:nth-child(9) {
+    left: 45%;
+    width: 65px;
+    height: 65px;
+    animation-duration: 14s;
+}
+
+.bubble:nth-child(10) {
+    left: 75%;
+    width: 75px;
+    height: 75px;
+    animation-duration: 10s;
+}
+
+.bubble:nth-child(11) {
+    left: 15%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 9s;
+}
+
+.bubble:nth-child(12) {
+    left: 30%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 11s;
+}
+
+.bubble:nth-child(13) {
+    left: 55%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 12s;
+}
+
+.bubble:nth-child(14) {
+    left: 85%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 15s;
+}
+
+.bubble:nth-child(15) {
+    left: 5%;
+    width: 45px;
+    height: 45px;
+    animation-duration: 10s;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    text-align: center; /* Center text */
+}
+
+.desc-pop-up {
+    font-size: 22px;
+    margin-top: 20px;
+    opacity: 0;
+    white-space: nowrap;
+    animation: descPopUp 2s ease forwards 0.5s;
+}
+
+@keyframes descPopUp {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.desc-pop-up1, .desc-pop-up2, .desc-pop-up3 {
+    font-size: 22px;
+    margin-top: 20px;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.desc-pop-up1 {
+    animation: descPopUp1 2s ease forwards 1s;
+}
+
+.desc-pop-up2 {
+    animation: descPopUp2 2s ease forwards 1.5s;
+}
+
+.desc-pop-up3 {
+    animation: descPopUp3 2s ease forwards 2s;
+}
+
+@keyframes descPopUp1 {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes descPopUp2 {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes descPopUp3 {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.Subscribe-btn {
+    margin-top: 20px;
+    color: white;
+    display: inline-block;
+    background-color: red;
+    padding: 30px 50px;
+    text-decoration: none;
+    transition: background-color ease 0.5s;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 100;
+        transform: translateY(0);
+    }
+}
+
+.Subscribe-btn:hover {
+    background-color: rgb(101, 17, 17);
+}
+
+footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+footer p a {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+.PPP {
+    font-size: 20px;
+    cursor: no-drop;
+    text-align: center;
+}
